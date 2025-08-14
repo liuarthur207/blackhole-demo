@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import RefractionSphere from './classes/RefractionSphere.js'
 import streakURL from './textures/circular_streaks_512.png';
+console.log('streakURL:', streakURL);
 
 const el = document.getElementById('app');
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -59,7 +60,7 @@ tex.wrapS = THREE.ClampToEdgeWrapping;
 tex.wrapT = THREE.ClampToEdgeWrapping;
 tex.colorSpace = THREE.SRGBColorSpace;
 
-const inner = 0.2, outer = 3;
+const inner = 0.2, outer = 1.25;
 const disk = new THREE.Mesh(
   new THREE.RingGeometry(inner, outer, 256, 1),
   new THREE.MeshBasicMaterial({
