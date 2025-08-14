@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import RefractionSphere from './classes/RefractionSphere.js'
+import streakURL from './textures/circular_streaks_512.png';
 
 const el = document.getElementById('app');
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -51,9 +52,9 @@ function addStarDome({scene, camera, count=3000, radius=150, size=0.7}={}){
 
 const updateStars = addStarDome({scene, camera, count: 4000, radius: 200, size: 0.6});
 
-const url = '/textures/circular_streaks_512.png';
+const loader = new THREE.TextureLoader();
+const tex = loader.load(streakURL);
 
-const tex = new THREE.TextureLoader().load(url);
 tex.wrapS = THREE.ClampToEdgeWrapping;
 tex.wrapT = THREE.ClampToEdgeWrapping;
 tex.colorSpace = THREE.SRGBColorSpace;
